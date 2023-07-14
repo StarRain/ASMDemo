@@ -1,0 +1,41 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+group = 'com.rainstar.plugin'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.2.0'
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // 设置插件的GAV参数
+            pom.groupId = 'com.rainstar.plugin'
+            pom.artifactId = 'asm-plugin'
+            pom.version = '1.0.0-SNAPSHOT'
+            // 文件发布到下面目录
+            repository(url: uri('../MavenRepo'))
+        }
+    }
+}
