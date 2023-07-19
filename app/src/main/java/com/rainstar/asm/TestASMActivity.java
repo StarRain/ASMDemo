@@ -1,10 +1,10 @@
 package com.rainstar.asm;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class TestASMActivity extends AppCompatActivity {
+public class TestASMActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
